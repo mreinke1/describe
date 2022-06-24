@@ -3,6 +3,6 @@
 
 
 ## Notes
-I converted the live script `main.mlx` via  [livescript2markdown](https://github.com/minoue-xx/livescript2markdown) to a markdown file `main.md`. In order to view the live script and it's output, you can click on the markdown version.
+I converted the live script `main.mlx` via  [livescript2markdown](https://github.com/minoue-xx/livescript2markdown) to a markdown file `main.md`. In order to view the live script and it's output, you can click on `main.md`.
 
 
