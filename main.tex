@@ -1,0 +1,85 @@
+% This LaTeX was auto-generated from MATLAB code.
+% To make changes, update the MATLAB code and export to LaTeX again.
+
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{listings}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{epstopdf}
+\usepackage[table]{xcolor}
+\usepackage{matlab}
+
+\sloppy
+\epstopdfsetup{outdir=./}
+\graphicspath{ {./main_images/} }
+
+\begin{document}
+
+\matlabtitle{Illustration of the describe function}
+
+\begin{par}
+\begin{flushleft}
+Create a matrix with random data. For example X contains in every column a variable.
+\end{flushleft}
+\end{par}
+
+\begin{matlabcode}
+X = randn(10,5);
+\end{matlabcode}
+
+\begin{par}
+\begin{flushleft}
+Describe returns the summary statistic of each column.
+\end{flushleft}
+\end{par}
+
+\begin{matlabcode}
+describe(X)
+\end{matlabcode}
+\begin{matlabtableoutput}
+{
+\begin{tabular} {|c|c|c|c|c|c|c|c|}\hline
+\mlcell{ } & \mlcell{Mean} & \mlcell{Std} & \mlcell{Min} & \mlcell{25\%} & \mlcell{50\%} & \mlcell{75\%} & \mlcell{Max} \\ \hline
+\mlcell{1} & \mlcell{0.6243} & \mlcell{1.6791} & \mlcell{-2.2588} & \mlcell{-0.4336} & \mlcell{0.4401} & \mlcell{1.8339} & \mlcell{3.5784} \\ \hline
+\mlcell{2} & \mlcell{0.7049} & \mlcell{1.1565} & \mlcell{-1.3499} & \mlcell{-0.1241} & \mlcell{0.7201} & \mlcell{1.4172} & \mlcell{3.0349} \\ \hline
+\mlcell{3} & \mlcell{0.3265} & \mlcell{0.8155} & \mlcell{-1.2075} & \mlcell{-0.3034} & \mlcell{0.5802} & \mlcell{0.7269} & \mlcell{1.6302} \\ \hline
+\mlcell{4} & \mlcell{-0.4414} & \mlcell{1.3481} & \mlcell{-2.9443} & \mlcell{-1.1471} & \mlcell{-0.7822} & \mlcell{0.8884} & \mlcell{1.4384} \\ \hline
+\mlcell{5} & \mlcell{0.2059} & \mlcell{0.5866} & \mlcell{-0.8649} & \mlcell{-0.1649} & \mlcell{0.1414} & \mlcell{0.6277} & \mlcell{1.1093} \\ 
+\hline
+\end{tabular}
+}
+\end{matlabtableoutput}
+
+
+\begin{par}
+\begin{flushleft}
+Considering a table with some data and variable names. Calling describe
+\end{flushleft}
+\end{par}
+
+\begin{matlabcode}
+Xtable = array2table(randn(10,5));
+describe(Xtable)
+\end{matlabcode}
+\begin{matlabtableoutput}
+{
+\begin{tabular} {|c|c|c|c|c|c|c|c|}\hline
+\mlcell{ } & \mlcell{Mean} & \mlcell{Std} & \mlcell{Min} & \mlcell{25\%} & \mlcell{50\%} & \mlcell{75\%} & \mlcell{Max} \\ \hline
+\mlcell{1 Var1} & \mlcell{0.0072} & \mlcell{0.5809} & \mlcell{-1.0298} & \mlcell{-0.1623} & \mlcell{0.1592} & \mlcell{0.3071} & \mlcell{0.9492} \\ \hline
+\mlcell{2 Var2} & \mlcell{-0.1281} & \mlcell{0.9138} & \mlcell{-1.1742} & \mlcell{-0.7120} & \mlcell{-0.3789} & \mlcell{-0.1922} & \mlcell{1.6821} \\ \hline
+\mlcell{3 Var3} & \mlcell{-0.0104} & \mlcell{0.9006} & \mlcell{-1.5062} & \mlcell{-0.4446} & \mlcell{-0.1928} & \mlcell{0.4434} & \mlcell{1.6035} \\ \hline
+\mlcell{4 Var4} & \mlcell{-0.5608} & \mlcell{1.0635} & \mlcell{-3.0292} & \mlcell{-0.9480} & \mlcell{-0.4824} & \mlcell{0.0125} & \mlcell{1.2424} \\ \hline
+\mlcell{5 Var5} & \mlcell{0.0465} & \mlcell{0.8477} & \mlcell{-1.5651} & \mlcell{-0.0845} & \mlcell{0.0699} & \mlcell{0.3503} & \mlcell{1.6039} \\ 
+\hline
+\end{tabular}
+}
+\end{matlabtableoutput}
+
+\end{document}
