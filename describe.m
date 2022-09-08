@@ -13,7 +13,7 @@ function [sum_stat, column_drop] = describe(array)
 % Output:
 %	- sum_stat (var-by-7): summary statistic for each model pair. 
 %   Function returns the following summary statistics:
-%   mean, std, min, 25%, 50%, 75% and max values
+%   count, mean, std, min, 25%, 50%, 75% and max values
 %   - column_drop: contains the column indices of the column which has been
 %   droped in the summary statistic because the variables where not
 %   numeric. Only returned if table is input.
@@ -43,7 +43,7 @@ function [sum_stat, column_drop] = describe(array)
       array = table2array(array);
       
       % Calculate column wise summary statistics
-      sum_stat = table(nanmean(array,1)', nanstd(array,1)', nanmin(array,[],1)',...
+      sum_stat = table(sum(~isnan(array),1)', nanmean(array,1)', nanstd(array,1)', nanmin(array,[],1)',...
                     quantile(array,0.25,1)',...
                     quantile(array,0.5,1)',...
                     quantile(array,0.75,1)',...
@@ -51,18 +51,18 @@ function [sum_stat, column_drop] = describe(array)
       
       % Add variables names back to results table
       sum_stat.Properties.RowNames = array_var_name;
-      sum_stat.Properties.VariableNames = {'Mean','Std','Min', '25%', '50%', '75%','Max'};
+      sum_stat.Properties.VariableNames = {'Count','Mean','Std','Min', '25%', '50%', '75%','Max'};
 
 
   elseif isa(array,'double')
       
       % Calculate column wise summary statistics of matrix
-      sum_stat = table(nanmean(array,1)', nanstd(array,1)', nanmin(array,[],1)',...
+      sum_stat = table(sum(~isnan(array),1)', nanmean(array,1)', nanstd(array,1)', nanmin(array,[],1)',...
                     quantile(array,0.25,1)',...
                     quantile(array,0.5,1)',...
                     quantile(array,0.75,1)',...
                     nanmax(array,[],1)');
 
-      sum_stat.Properties.VariableNames = {'Mean','Std','Min', '25%', '50%', '75%','Max'};
+      sum_stat.Properties.VariableNames = {'Count', 'Mean','Std','Min', '25%', '50%', '75%','Max'};
       
   end
